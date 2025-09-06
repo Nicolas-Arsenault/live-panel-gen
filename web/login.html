@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-animation">
+            <div class="contentbox">
+                <div class="loginbox">
+                    <div class="titleBox">
+                        <h2>Welcome To</h2>
+                        <h1 class="white">Live Panel</h1>
+                    </div>
+                    <div class="loginform">
+                        <form on:submit={handleLogin}>
+                            <label>Username</label>
+                            <input bind:value={userName} placeholder="Your Username" type="text">
+                            <label>Password</label>
+                            <input bind:value={passWord} placeholder="Your Password" type="password">
+
+                            <button type="submit">Login</button>
+                        </form>
+                    </div>
+                    <a href="#" class="darkText">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
