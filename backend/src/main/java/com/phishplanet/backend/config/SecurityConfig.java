@@ -41,7 +41,7 @@ public class SecurityConfig {
     {
         return http
                 .csrf(csrf->csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/login","/register","/changepassword").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/login","/auth/register","/auth/changepassword").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(sess->sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .userDetailsService(customUserDetailsService)
