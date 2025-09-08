@@ -21,7 +21,7 @@ export default function Login(){
                     <div className="fixed w-100 p-16 border-4 border-[#1c1d20] bg-[#111214] text-white rounded-xl transition-all duration-500 hover:-translate-y-1 hover:scale-105">
                         <div className="mb-4">
                             <h2 className="text-white text-[1.40em]">Welcome To</h2>
-                            <h1 className="text-white text-[1.5em]">Live Panel</h1>
+                            <h1 className="text-white text-[1.75em] text-shadow-white-5g">PhishHub</h1>
                         </div>
                         <div className="flex flex-col gap-2">
                             <form onSubmit={handleLogin}>
