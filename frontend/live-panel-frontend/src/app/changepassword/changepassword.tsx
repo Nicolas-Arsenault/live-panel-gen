@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useState} from 'react'
-import Buttons from "$/Components/Buttons/Buttons"
+import Buttons from "$/Components/Buttons/Buttons";
 
 export default function ChangePassword(){
 
