@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react'
 import Buttons from "$/Components/Buttons/Buttons"
+import Inputs from "$/Components/Inputs/Inputs"
 
 export default function ChangePassword(){
 

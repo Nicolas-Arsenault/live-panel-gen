@@ -7,6 +7,7 @@ export default function ChangePassword(){
 
     const [password, setpassword] = useState();
 
+    let username;
     let oldPassword;
     let newPassword;
     let reenterNewPassword
@@ -25,6 +26,8 @@ export default function ChangePassword(){
                         </div>
                         <div className="flex flex-col gap-2">
                             <form onSubmit={handleChangePassword}>
+                                <label className="text-[rgb(106,106,106)]">Your Username:</label>
+                                <input className="border border-[#202225] bg-[#111214] p-3 mb-3 text-white font-sans rounded-md focus:outline-none focus:border-[#4dff00]" value={username} placeholder="Your Username" type="text" />
                                 <label className="text-[rgb(106,106,106)]">Old Password:</label>
                                 <input className="border border-[#202225] bg-[#111214] p-3 mb-3 text-white font-sans rounded-md focus:outline-none focus:border-[#4dff00]" value={oldPassword} placeholder="Your Old Password" type="password" />
                                 <label className="text-[rgb(106,106,106)]">New Password:</label>
