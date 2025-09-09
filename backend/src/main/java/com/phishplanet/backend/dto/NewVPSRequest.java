@@ -1,11 +1,16 @@
 package com.phishplanet.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class NewVPSRequest {
-    private String ip;
+
+    @JsonProperty("vpsIp")
+    private String vpsIp;
     private String username;
     private String password;
-    private String OS;
+
+    @JsonProperty("osSystem")
+    private String osSystem;
 }

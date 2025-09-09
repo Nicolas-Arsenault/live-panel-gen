@@ -1,14 +1,18 @@
 package com.phishplanet.backend.utils;
 
 import com.phishplanet.backend.config.JwtProperties;
+import io.jsonwebtoken.Jwt;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+
 import java.util.Date;
 
 @Component
@@ -20,11 +24,19 @@ public class JwtProvider {
         this.jwtProperties = jwtProperties;
     }
 
-    public String getToken()
-    {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return (String)auth.getCredentials();
+
+
+    public String getToken() {
+        ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (attrs == null) return null;
+        HttpServletRequest request = attrs.getRequest();
+        String authHeader = request.getHeader("Authorization");
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            return authHeader.substring(7); // strip "Bearer "
+        }
+        return null;
     }
+
 
 
     public String generateJwtToken(String username) {
