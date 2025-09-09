@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
     @Column(unique = true)
     private String username;
@@ -39,7 +39,7 @@ public class User {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public void setRole(String role) {
@@ -47,7 +47,7 @@ public class User {
     }
 
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public String getRole() {

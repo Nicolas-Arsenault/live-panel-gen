@@ -11,7 +11,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -53,12 +52,6 @@ public class AuthController {
         return "Registration successfull!";
     }
 
-    @GetMapping("/protected")
-    public String protectedEndpoint()
-    {
-        return "Hello!";
-    }
-
     @PostMapping("/changepassword")
     public String changePassword(@RequestBody ChangePasswordRequest req)
     {
@@ -90,6 +83,4 @@ public class AuthController {
             throw new RuntimeException("Invalid username or password!");
         }
     }
-
-
 }

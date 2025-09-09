@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE VPS (
     id SERIAL PRIMARY KEY,
-    clientId UUID REFERENCES Client(clientId) ON DELETE CASCADE,
+    clientId BIGINT REFERENCES users(id) ON DELETE CASCADE,
     vps_ip INET NOT NULL,
     state TEXT CHECK (state IN ('active', 'inactive', 'error')) NOT NULL,
     username TEXT NOT NULL,
