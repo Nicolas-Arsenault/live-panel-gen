@@ -4,11 +4,13 @@ import Register from "$/register/page"
 import Dashboard from "$/dashboard/page"
 import ChangePassword from "./changepassword/page"
 import Link from "next/link";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import RequireAuth from 'react-auth-kit'
+import { MantineProvider } from '@mantine/core';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import RequireAuth from 'react-auth-kit'
 
 export default function Home() {
   return (
+
     <script>
       window.location.replace("/login")
     </script>

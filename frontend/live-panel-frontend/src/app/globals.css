@@ -3,10 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@mantine/core/styles.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -22,6 +23,22 @@
     --foreground: #ededed;
   }
 }
+
+.textInputs {
+    border: 1px solid #202225;
+    background-color: #111214;
+    padding: 0.75em;
+    color: white;
+    font-family: "DM Sans";
+    border-radius: 0.5em;
+}
+
+.textInputs:focus {
+    outline: none;
+    border: 1px solid #4dff00;
+}
+
+
 
 body {
   background: var(--background);

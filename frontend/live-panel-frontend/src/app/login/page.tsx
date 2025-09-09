@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react'
 import Buttons from "$/Components/Buttons/Buttons"
+import Link from "next/link"
 
 export default function Login(){
 
@@ -31,8 +32,8 @@ export default function Login(){
                                 <input className="border border-[#202225] bg-[#111214] p-3 text-white font-sans rounded-md focus:outline-none focus:border-[#4dff00]" value={passWord} placeholder="Your Password" type="password" />
                                 <Buttons text="Login"/>
                             </form>
-                            <a href="/changepassword" className="text-[#4d4d4d] no-underline transition-colors duration-500 ease-in-out hover:text-white cursor-pointer">Change Your Password</a>
-                            <a href="/register" className="text-[#4d4d4d] no-underline transition-colors duration-500 ease-in-out hover:text-white cursor-pointer">Create an account</a>
+                            <Link href={"/changepassword"} className={"text-[#4d4d4d] no-underline transition-colors duration-500 ease-in-out hover:text-white cursor-pointer"}>Change Your Password</Link>
+                            <Link href={"/register"} className={"text-[#4d4d4d] no-underline transition-colors duration-500 ease-in-out hover:text-white cursor-pointer"}>Create An Account</Link>
                         </div>
                     </div>
                 </div>
