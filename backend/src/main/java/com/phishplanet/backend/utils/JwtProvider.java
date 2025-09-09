@@ -5,6 +5,8 @@ import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import java.util.Date;
@@ -17,6 +19,13 @@ public class JwtProvider {
     public JwtProvider(JwtProperties jwtProperties) {
         this.jwtProperties = jwtProperties;
     }
+
+    public String getToken()
+    {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return (String)auth.getCredentials();
+    }
+
 
     public String generateJwtToken(String username) {
         Date now = new Date(System.currentTimeMillis());
