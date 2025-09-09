@@ -11,11 +11,16 @@ import { IconLock, IconUser } from '@tabler/icons-react';
 
 interface ChangePasswordPropsFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-// const registerShema = z
-//     .object({
+const schema = z.object({
+    username: z.string(),
+    password: z.string(),
+    reEnterPassword: z.string(),
+}).required()
+.refine((data) => data.password === data.reEnterPassword, {
+    message: "Passwords don't match."
+});
 
-//     })
-//     //.refine((data));
+type FormFields = z.infer<typeof schema>;
 
 export function RegisterForm({ className, ...props}: ChangePasswordPropsFormProps){
     
