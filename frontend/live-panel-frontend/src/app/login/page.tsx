@@ -4,6 +4,8 @@ import React, {useState} from 'react'
 import Buttons from "$/Components/Buttons/Buttons"
 import Link from "next/link"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { z } from "zod"
 import { zodResolver  } from "@hookform/resolvers/zod"
 
@@ -15,6 +17,8 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export default function Login(){
+    const goto = useRouter();
+
     const {
         register,
         handleSubmit,
@@ -24,14 +28,26 @@ export default function Login(){
         resolver: zodResolver(schema),
     });
 
-    const onSubmit = (data: FormFields) => {
-        try{
-            
-        }
-        catch{
+    async function onSubmit(data: FormFields){
+        const username = data.username;
+        const password = data.password;
+        const resp = await fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ username, password })
+        });
 
+        if(resp.ok){
+            const { token }  = await resp.json();
+            console.log(token)
+            localStorage.setItem('authToken', token);
+            goto.push('/dashboard');
+        }
+        else{
+            console.log("bad login");
         }
     }
+
     return(
         <div className="font-sans bg-black text-[rgb(126,126,126)] min-h-screen m-0 w-full h-full absolute bg-gradient-to-br from-neutral-600 to-black">
             <div className="background-animation">
